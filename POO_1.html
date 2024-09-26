@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" integrity="sha256-h2Gkn+H33lnKlQTNntQyLXMWq7/9XI2rlPCsLsVcUBs=" crossorigin="anonymous">
+    <script src="
+https://cdn.jsdelivr.net/npm/sweet-alert@2.0.5/sweet-alert.min.js
+"></script>
+</head>
+<body>
+
+<p>ingresa tu nombre:</p>
+<input type="text" id="nombre" placeholder="nombre">
+<button onclick="saludar()">saludar</button>
+<p> selecciona una opción</p>
+
+
+<select name="opciones" id="opciones" onclick="elegiropcion()">
+    <option value="1">opcion 1</option>
+    <option value="2">opcion 2</option>
+    <option value="3">opcion 3</option>
+</select>
+
+
+
+
+
+<script>
+
+   /* function saludar(){
+        alert("hola "+document.getElementById("nombre").value);
+    }*///otra forma abajo
+
+   function saludar(){
+       let nombre = document.getElementById("nombre").value;//otar forma con variable
+       alert("hola javascript "+nombre);
+   }
+
+
+   function elegiropcion(){
+       let opcion = document.getElementById("opciones").value;
+       switch (opcion){
+           case "1":
+               alert("elegiste la opcion 1");
+               break;
+           case "2":
+               alert("elegiste la opcion 2");
+               break;
+           case "3":
+               alert("elegiste la opcion 3");
+               break;
+           default:
+               alert("no elegiste ninguna opcion");
+               break;
+       }
+   }
+
+
+</script>
+<script src="POO_1.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+const persona = {
+  nombre: "Juan",
+  apellido: "Pérez",
+  edad: 30,
+  genero: "Masculino",
+  direccion: "Calle 123, Ciudad",
+  telefono: "555-1234",
+  correo: "juan.perez@example.com",
+  ocupacion: "Ingeniero",
+  estadoCivil: "Soltero",
+  hobbies: ["leer", "deportes", "viajar"],
+  nacionalidad: "Mexicana"
+};
+
+
+for(let[clave, valor] of Object.entries(persona)){
+    console.log(`${clave}: ${valor}`);
+};
+
+//for in
+
+for(clave in persona){
+    console.log(`${clave}: ${persona[clave]}`)
+};
+
+
+// funcion constructora ANTIGUA
+
+function Persona(nombre, edad, apellido){
+    this.nombre=nombre,
+    this.edad=edad,
+    this.apellido=apellido,
+    this.imprimir=function(){
+        return `${this.nombre} ${this.apellido}, ${this.edad} años`;
+    }
+};
+
+/*prototype En JavaScript, el prototype es un objeto especial asociado a una función constructora o a una clase. 
+Sirve como plantilla para crear nuevos objetos. 
+Cuando creas un objeto usando una función constructora (con new) o una clase, 
+el nuevo objeto hereda automáticamente las propiedades y métodos definidos en el prototype de su constructor o clase.
+*/
+Persona.prototype.saludar=function(){
+    return `Hola, me llamo ${this.nombre} ${this.apellido} y quiero ser tu compañero de estudio`;
+};
+Persona.prototype.estudios="ingeniero de sistemas";
+
+
+
+
+let persona1=new Persona('juan',36,'fernández');
+console.log(persona1.imprimir());
+console.log(persona1.saludar());
+console.table(persona1)
+console.log(persona1.estudios)
+
+const persona2= new Persona('marta',32,'rodríguez');
+console.log(persona2.imprimir());
+console.log(persona2.nombre, persona2.edad, persona2.apellido)
+
+
+
+
+
+//funcion constructora MODERNA
+class OtraPersona{
+    constructor(nombre, edad, apellido){
+        this.nombre=nombre,
+        this.edad=edad,
+        this.apellido=apellido
+    }
+    imprimir(){
+        return `${this.nombre} ${this.apellido}, ${this.edad} años`;
+    }
+};
+OtraPersona.prototype.saludar=function(){
+    return `Hola, me llamo ${this.nombre} ${this.apellido} y quiero ser tu compañero de estudio`;
+};
+const persona3=new OtraPersona('juan',36,'fernández');
+console.log(persona3.imprimir());
+console.log(persona3.saludar());
+
+
+// herencia
+
+class Empleado extends OtraPersona{
+    constructor(nombre, edad, apellido, puesto, sueldoAnual){
+    super(nombre, edad, apellido);
+    this.puesto=puesto;
+    this.sueldoAnual=sueldoAnual;
+}
+ imprimir(){
+    return `${super.imprimir()}, ${this.puesto}, ${this.sueldoAnual}`;//super.imprimir() accedo a metodo de la clase padre
+ }
+
+ static saludarClase(){
+    console.log('hola desde la clase');
+ }
+
+};
+
+const empleado1=new Empleado('juan',36,'fernández','programador', 50000);
+console.log(empleado1.imprimir());
+Empleado.saludarClase();
