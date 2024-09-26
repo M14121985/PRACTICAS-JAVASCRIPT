@@ -109,3 +109,44 @@ let arrayOrdenado= NumerosArray.sort((a,b)=> {return a-b});
 console.log(arrayOrdenado);
 let copiaNumerosArray= NumerosArray.map((i)=>{return i});
 console.log(copiaNumerosArray);
+
+
+
+// practica forEach() copiamos con forEach//
+
+let numeross=[1,2,3,4,5,6,7,8,9,10];
+let copiaNumeros=[];
+numeross.forEach(function(i){return copiaNumeros.push(i)});
+console.log(typeof copiaNumeros);
+console.log(copiaNumeros)
+//copiar con map
+
+let copiaNumeros2=numeross.map((i)=>i);
+console.log(copiaNumeros2);
+console.log(typeof copiaNumeros2);
+//practicas map
+let nombres=['carla', 'juan', 'noa', 'pedro', 'iker', 'natalia', 'fernando', 'ana', 'lorena'];
+let copiaNombres= nombres.map((i)=>{
+  return i.toUpperCase()
+});
+console.log(copiaNombres);
+
+//copia con forEach
+let copiaNombres2=[];
+nombres.forEach((i)=>{return copiaNombres2.push(i.toUpperCase())});
+console.log(copiaNombres2); 
+//OBJETOS METODOS
+
+let objetoOriginal = {
+  nombre: "Juan",
+  edad: 30,
+  direccion: {
+    calle: "Gran Vía",
+    numero: 123
+  }
+};
+//copia con spread
+let copiaObjeto={...objetoOriginal};
+console.log(copiaObjeto);
+let copiaObjeto2=Object.assign({},objetoOriginal);
+console.log(copiaObjeto2);
